@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="taskpane.css">
   <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
 <body>
   <main>
@@ -64,7 +65,7 @@
     </section>
 
     <section id="outputSection" hidden>
-      <h2>3. Import into Excel</h2>
+      <h2 id="outputTitle">3. Import into Excel</h2>
       <fieldset>
         <label class="check"><input type="radio" name="outMode" value="sheet" checked> New sheet for each table</label>
         <label class="check"><input type="radio" name="outMode" value="stack"> All tables on one sheet</label>
@@ -72,8 +73,9 @@
       </fieldset>
       <label class="check"><input type="checkbox" id="addSource" checked> Add source file and page columns</label>
       <label class="check"><input type="checkbox" id="convertNumbers" checked> Convert numbers (1,234.50 and (99) become numbers)</label>
-      <label class="check"><input type="checkbox" id="asTable" checked> Format as Excel table</label>
+      <label class="check"><input type="checkbox" id="asTable" checked> <span id="asTableLabel">Format as Excel table</span></label>
       <button id="importBtn" class="primary" disabled>Import selected tables</button>
+      <button id="downloadBtn" class="primary" disabled hidden>Download Excel file (.xlsx)</button>
     </section>
 
     <p id="status" class="status" role="status" aria-live="polite"></p>

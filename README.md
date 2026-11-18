@@ -9,6 +9,19 @@ Pick several PDF files, preview the tables found in them, and import the ones yo
 
 It only works on PDFs that contain real text. Scanned PDFs need OCR first.
 
+## Excel 2010, Excel 2007, WPS or any other spreadsheet app
+
+These can't load web add-ins, so use the page directly in Chrome or Edge:
+
+1. Open **https://yeongit5985.github.io/pdf-table-importer/taskpane.html**
+2. Choose your PDFs and click **Find tables**.
+3. Untick the tables you don't want, pick a layout, and click **Download Excel file (.xlsx)**.
+4. Open the downloaded file from your Downloads folder.
+
+The PDFs are read in your browser. Nothing is uploaded. Bookmark the page so you can come back to it.
+
+The rest of this guide (sections 1–3) is only for Excel 2016 or later, where the add-in can run inside Excel.
+
 ## Files
 
 | File | Purpose |

@@ -40,8 +40,14 @@ function init() {
   $("selectAll").addEventListener("click", () => setAllSelected(true));
   $("selectNone").addEventListener("click", () => setAllSelected(false));
 
+  $("downloadBtn").addEventListener("click", runDownload);
+
   if (!state.inExcel) {
-    setStatus("Preview mode: open this page from the Excel ribbon to import tables.");
+    // Opened in a normal browser (e.g. for Excel 2010): save an .xlsx file instead.
+    $("importBtn").hidden = true;
+    $("downloadBtn").hidden = false;
+    $("outputTitle").textContent = "3. Save as Excel file";
+    $("asTableLabel").textContent = "Add filter buttons to the header row";
   }
 }
 
@@ -80,7 +86,7 @@ function updateButtons() {
   $("extractBtn").disabled = state.busy || state.files.length === 0;
   const anySelected = state.tables.some((t) => t.selected);
   $("importBtn").disabled = state.busy || !anySelected || !state.inExcel;
-  $("importBtn").title = state.inExcel ? "" : "Open this add-in inside Excel to import.";
+  $("downloadBtn").disabled = state.busy || !anySelected;
 }
 
 function setStatus(msg, kind) {
@@ -577,6 +583,110 @@ async function importToExcel(tables, mode, o) {
   });
 }
 
+/* -------------------------------------------- .xlsx download (any Excel) */
+
+function readOutputOptions() {
+  return {
+    mode: document.querySelector("input[name=outMode]:checked").value,
+    addSource: $("addSource").checked,
+    convert: $("convertNumbers").checked,
+    asTable: $("asTable").checked,
+  };
+}
+
+function runDownload() {
+  const selected = state.tables.filter((t) => t.selected);
+  if (!selected.length) return;
+  try {
+    const o = readOutputOptions();
+    const wb = buildWorkbook(selected, o.mode, o);
+    const today = new Date().toISOString().slice(0, 10);
+    XLSX.writeFile(wb, `PDF tables ${today}.xlsx`, { compression: true });
+    setStatus(`Saved ${selected.length} table(s) to "PDF tables ${today}.xlsx" in your Downloads folder.`, "ok");
+  } catch (e) {
+    console.error(e);
+    setStatus("Could not create the Excel file: " + (e && e.message ? e.message : e), "error");
+  }
+}
+
+/** Builds a SheetJS workbook with the same layout as the in-Excel import. */
+function buildWorkbook(tables, mode, o) {
+  const wb = XLSX.utils.book_new();
+  const used = new Set();
+  const addSheet = (base, blocks, filter) => {
+    const name = uniqueSheetName(base, used);
+    used.add(name.toLowerCase());
+    XLSX.utils.book_append_sheet(wb, blocksToSheet(blocks, o, filter), name);
+  };
+
+  if (mode === "sheet") {
+    for (const t of tables) {
+      addSheet(`${fileStem(t.file).slice(0, 20)} p${t.page}-${t.index}`,
+        [{ rows: withSource(t, o.addSource) }], o.asTable);
+    }
+  } else if (mode === "stack") {
+    addSheet("PDF Tables", tables.map((t) => ({
+      title: `${t.file}  |  page ${t.page}  |  table ${t.index}`,
+      rows: withSource(t, o.addSource),
+    })), false);
+  } else {
+    addSheet("PDF Combined", [{ rows: combineTables(tables, o.addSource) }], o.asTable);
+  }
+  return wb;
+}
+
+function blocksToSheet(blocks, o, filter) {
+  const ws = {};
+  const widths = [];
+  let r = 0;
+  let maxC = 0;
+  const put = (row, col, cell) => {
+    ws[XLSX.utils.encode_cell({ r: row, c: col })] = cell;
+    const len = String(cell.w || cell.v).length;
+    widths[col] = Math.max(widths[col] || 8, Math.min(50, len + 2));
+    maxC = Math.max(maxC, col);
+  };
+
+  for (const b of blocks) {
+    if (b.title) { put(r, 0, { t: "s", v: b.title }); r++; }
+    const start = r;
+    b.rows.forEach((row, i) => {
+      const asNumber = o.convert && !(o.asTable && i === 0); // keep header row as text
+      row.forEach((c, col) => {
+        const cell = xlsxCell(c, asNumber);
+        if (cell) put(r, col, cell);
+      });
+      r++;
+    });
+    if (filter && b.rows.length >= 2) {
+      const width = Math.max(...b.rows.map((x) => x.length));
+      ws["!autofilter"] = { ref: XLSX.utils.encode_range({ s: { r: start, c: 0 }, e: { r: r - 1, c: width - 1 } }) };
+    }
+    r += 2; // blank rows between stacked tables
+  }
+
+  ws["!ref"] = XLSX.utils.encode_range({ s: { r: 0, c: 0 }, e: { r: Math.max(0, r - 3), c: maxC } });
+  ws["!cols"] = widths.map((w) => ({ wch: w || 8 }));
+  return ws;
+}
+
+/** Cell object for SheetJS. Text stays text, so no apostrophe guard is needed here. */
+function xlsxCell(raw, convert) {
+  if (typeof raw === "number") return { t: "n", v: raw };
+  const s = String(raw == null ? "" : raw).trim();
+  if (!s) return null;
+  if (convert) {
+    const n = parseNumber(s);
+    if (n !== null) return { t: "n", v: n };
+    const pct = s.match(/^([-+]?\d+(?:\.\d+)?)\s?%$/);
+    if (pct) {
+      const decimals = (pct[1].split(".")[1] || "").length;
+      return { t: "n", v: parseFloat(pct[1]) / 100, z: decimals ? "0." + "0".repeat(decimals) + "%" : "0%" };
+    }
+  }
+  return { t: "s", v: s };
+}
+
 function withSource(t, addSource) {
   if (!addSource) return t.rows;
   return t.rows.map((r, i) => (i === 0 ? ["Source file", "Page"] : [t.file, t.page]).concat(r));
@@ -678,4 +788,4 @@ function uniqueSheetName(base, used) {
 }
 
 // Exposed for testing in a normal browser console.
-window.PdfTableImporter = { extractTablesFromPdf, combineTables, toCell, parseNumber, parsePages };
+window.PdfTableImporter = { extractTablesFromPdf, combineTables, toCell, parseNumber, parsePages, buildWorkbook };
