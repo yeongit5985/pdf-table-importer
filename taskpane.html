@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PDF Table Importer</title>
+  <link rel="stylesheet" href="taskpane.css">
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+  <main>
+    <h1>PDF Table Importer</h1>
+
+    <section>
+      <h2>1. Choose PDF files</h2>
+      <label id="dropZone" class="drop" tabindex="0">
+        <input type="file" id="fileInput" accept=".pdf,application/pdf" multiple hidden>
+        <strong>Click to choose PDFs</strong>
+        <span>or drag and drop them here</span>
+      </label>
+      <ul id="fileList" class="file-list"></ul>
+    </section>
+
+    <section>
+      <details id="settings">
+        <summary>Detection settings</summary>
+        <div class="field">
+          <label for="mode">Mode</label>
+          <select id="mode">
+            <option value="auto">Find tables automatically</option>
+            <option value="page">Whole page as one table</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="pages">Pages <span class="dim">(e.g. 1-3, 5; blank = all)</span></label>
+          <input id="pages" type="text" placeholder="All pages">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="minRows">Min. rows</label>
+            <input id="minRows" type="number" min="1" max="50" value="2">
+          </div>
+          <div class="field">
+            <label for="gapEm" title="Gap between words (in font heights) that counts as a column break. Lower = more columns.">Column gap</label>
+            <input id="gapEm" type="number" min="0.3" max="5" step="0.1" value="0.8">
+          </div>
+        </div>
+        <label class="check"><input type="checkbox" id="mergeWrapped"> Join wrapped text into the row above</label>
+      </details>
+      <button id="extractBtn" class="primary" disabled>Find tables</button>
+    </section>
+
+    <section id="resultsSection" hidden>
+      <h2>2. Pick tables</h2>
+      <div class="toolbar">
+        <span id="resultsSummary" class="dim"></span>
+        <span>
+          <button id="selectAll" class="link">All</button> ·
+          <button id="selectNone" class="link">None</button>
+        </span>
+      </div>
+      <div id="results"></div>
+    </section>
+
+    <section id="outputSection" hidden>
+      <h2>3. Import into Excel</h2>
+      <fieldset>
+        <label class="check"><input type="radio" name="outMode" value="sheet" checked> New sheet for each table</label>
+        <label class="check"><input type="radio" name="outMode" value="stack"> All tables on one sheet</label>
+        <label class="check"><input type="radio" name="outMode" value="combine"> Combine into one table <span class="dim">(same columns)</span></label>
+      </fieldset>
+      <label class="check"><input type="checkbox" id="addSource" checked> Add source file and page columns</label>
+      <label class="check"><input type="checkbox" id="convertNumbers" checked> Convert numbers (1,234.50 and (99) become numbers)</label>
+      <label class="check"><input type="checkbox" id="asTable" checked> Format as Excel table</label>
+      <button id="importBtn" class="primary" disabled>Import selected tables</button>
+    </section>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+  </main>
+  <script src="taskpane.js"></script>
+</body>
+</html>

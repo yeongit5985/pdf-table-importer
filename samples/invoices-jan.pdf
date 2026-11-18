@@ -1,0 +1,101 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier /Encoding /WinAnsiEncoding >>
+endobj
+3 0 obj
+<< /Length 1568 >>
+stream
+BT /F1 14 Tf 60.00 750.00 Td (Invoice Register - January 2026) Tj ET
+BT /F1 9 Tf 60.00 732.00 Td (Page 1 of 2) Tj ET
+BT /F1 10 Tf 60.00 700.00 Td (Date) Tj ET
+BT /F1 10 Tf 140.00 700.00 Td (Invoice) Tj ET
+BT /F1 10 Tf 220.00 700.00 Td (Customer) Tj ET
+BT /F1 10 Tf 417.00 700.00 Td (Amount) Tj ET
+BT /F1 10 Tf 480.00 700.00 Td (Status) Tj ET
+0.5 w 60 696 m 484 696 l S
+BT /F1 10 Tf 60.00 684.00 Td (2026-01-03) Tj ET
+BT /F1 10 Tf 140.00 684.00 Td (INV-1001) Tj ET
+BT /F1 10 Tf 220.00 684.00 Td (Northwind Traders) Tj ET
+BT /F2 10 Tf 402.00 684.00 Td (1,250.00) Tj ET
+BT /F1 10 Tf 480.00 684.00 Td (Paid) Tj ET
+BT /F1 10 Tf 60.00 668.00 Td (2026-01-05) Tj ET
+BT /F1 10 Tf 140.00 668.00 Td (INV-1002) Tj ET
+BT /F1 10 Tf 220.00 668.00 Td (Contoso Pharmaceuticals) Tj ET
+BT /F2 10 Tf 414.00 668.00 Td (980.50) Tj ET
+BT /F1 10 Tf 480.00 668.00 Td (Paid) Tj ET
+BT /F1 10 Tf 60.00 652.00 Td (2026-01-09) Tj ET
+BT /F1 10 Tf 140.00 652.00 Td (INV-1003) Tj ET
+BT /F1 10 Tf 220.00 652.00 Td (Fabrikam Inc) Tj ET
+BT /F2 10 Tf 396.00 652.00 Td (15,400.00) Tj ET
+BT /F1 10 Tf 480.00 652.00 Td (Open) Tj ET
+BT /F1 10 Tf 60.00 636.00 Td (2026-01-12) Tj ET
+BT /F1 10 Tf 140.00 636.00 Td (INV-1004) Tj ET
+BT /F1 10 Tf 220.00 636.00 Td (Adventure Works) Tj ET
+BT /F2 10 Tf 408.00 636.00 Td (-320.00) Tj ET
+BT /F1 10 Tf 480.00 636.00 Td (Credit) Tj ET
+BT /F1 10 Tf 60.00 620.00 Td (2026-01-15) Tj ET
+BT /F1 10 Tf 140.00 620.00 Td (INV-1005) Tj ET
+BT /F1 10 Tf 220.00 620.00 Td (Tailspin Toys) Tj ET
+BT /F2 10 Tf 402.00 620.00 Td (2,045.75) Tj ET
+BT /F1 10 Tf 480.00 620.00 Td (Paid) Tj ET
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 7 0 R /MediaBox [0 0 612 792] /Contents 3 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> >>
+endobj
+5 0 obj
+<< /Length 1075 >>
+stream
+BT /F1 14 Tf 60.00 750.00 Td (Invoice Register - January 2026) Tj ET
+BT /F1 9 Tf 60.00 732.00 Td (Page 2 of 2) Tj ET
+BT /F1 10 Tf 60.00 700.00 Td (Date) Tj ET
+BT /F1 10 Tf 140.00 700.00 Td (Invoice) Tj ET
+BT /F1 10 Tf 220.00 700.00 Td (Customer) Tj ET
+BT /F1 10 Tf 417.00 700.00 Td (Amount) Tj ET
+BT /F1 10 Tf 480.00 700.00 Td (Status) Tj ET
+0.5 w 60 696 m 484 696 l S
+BT /F1 10 Tf 60.00 684.00 Td (2026-01-20) Tj ET
+BT /F1 10 Tf 140.00 684.00 Td (INV-1006) Tj ET
+BT /F1 10 Tf 220.00 684.00 Td (Wide World Importers) Tj ET
+BT /F2 10 Tf 402.00 684.00 Td (7,800.00) Tj ET
+BT /F1 10 Tf 480.00 684.00 Td (Open) Tj ET
+BT /F1 10 Tf 60.00 668.00 Td (2026-01-22) Tj ET
+BT /F1 10 Tf 140.00 668.00 Td (INV-1007) Tj ET
+BT /F1 10 Tf 220.00 668.00 Td (Litware) Tj ET
+BT /F2 10 Tf 414.00 668.00 Td (430.00) Tj ET
+BT /F1 10 Tf 480.00 668.00 Td (Paid) Tj ET
+BT /F1 10 Tf 60.00 652.00 Td (2026-01-28) Tj ET
+BT /F1 10 Tf 140.00 652.00 Td (INV-1008) Tj ET
+BT /F1 10 Tf 220.00 652.00 Td (Proseware) Tj ET
+BT /F2 10 Tf 420.00 652.00 Td (12.5%) Tj ET
+BT /F1 10 Tf 480.00 652.00 Td (Disputed) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 7 0 R /MediaBox [0 0 612 792] /Contents 5 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> >>
+endobj
+7 0 obj
+<< /Type /Pages /Kids [4 0 R 6 0 R] /Count 2 >>
+endobj
+8 0 obj
+<< /Type /Catalog /Pages 7 0 R >>
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000009 00000 n 
+0000000106 00000 n 
+0000000201 00000 n 
+0000001821 00000 n 
+0000001957 00000 n 
+0000003084 00000 n 
+0000003220 00000 n 
+0000003283 00000 n 
+trailer
+<< /Size 9 /Root 8 0 R >>
+startxref
+3332
+%%EOF

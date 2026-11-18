@@ -1,0 +1,83 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier /Encoding /WinAnsiEncoding >>
+endobj
+3 0 obj
+<< /Length 2355 >>
+stream
+BT /F1 16 Tf 72.00 740.00 Td (Quarterly Purchase Summary) Tj ET
+BT /F1 10 Tf 72.00 716.00 Td (This report lists purchases made in the quarter. Amounts are in US dollars and include tax.) Tj ET
+BT /F1 10 Tf 72.00 702.00 Td (Items marked as backordered will ship next month.) Tj ET
+BT /F1 10 Tf 72.00 670.00 Td (Item) Tj ET
+BT /F1 10 Tf 250.00 670.00 Td (Supplier) Tj ET
+BT /F1 10 Tf 363.50 670.00 Td (Qty) Tj ET
+BT /F1 10 Tf 405.00 670.00 Td (Unit Price) Tj ET
+BT /F1 10 Tf 507.00 670.00 Td (Amount) Tj ET
+0.5 w 72 666 m 544 666 l S
+BT /F1 10 Tf 72.00 654.00 Td (Steel bracket) Tj ET
+BT /F1 10 Tf 250.00 654.00 Td (Acme Metals) Tj ET
+BT /F2 10 Tf 362.00 654.00 Td (120) Tj ET
+BT /F2 10 Tf 436.00 654.00 Td (4.50) Tj ET
+BT /F2 10 Tf 504.00 654.00 Td (540.00) Tj ET
+BT /F1 10 Tf 72.00 638.00 Td (Copper wire 2mm) Tj ET
+BT /F1 10 Tf 250.00 638.00 Td (WireCo) Tj ET
+BT /F2 10 Tf 368.00 638.00 Td (35) Tj ET
+BT /F2 10 Tf 430.00 638.00 Td (12.75) Tj ET
+BT /F2 10 Tf 504.00 638.00 Td (446.25) Tj ET
+BT /F1 10 Tf 72.00 622.00 Td (Hex bolts M8) Tj ET
+BT /F1 10 Tf 250.00 622.00 Td (Acme Metals) Tj ET
+BT /F2 10 Tf 350.00 622.00 Td (1,000) Tj ET
+BT /F2 10 Tf 436.00 622.00 Td (0.12) Tj ET
+BT /F2 10 Tf 504.00 622.00 Td (120.00) Tj ET
+BT /F1 10 Tf 72.00 606.00 Td (Paint, grey) Tj ET
+BT /F1 10 Tf 250.00 606.00 Td (ColorWorks) Tj ET
+BT /F2 10 Tf 374.00 606.00 Td (8) Tj ET
+BT /F2 10 Tf 430.00 606.00 Td (38.00) Tj ET
+BT /F2 10 Tf 504.00 606.00 Td (304.00) Tj ET
+BT /F1 10 Tf 72.00 590.00 Td (Safety gloves) Tj ET
+BT /F1 10 Tf 250.00 590.00 Td (SafeHands Ltd) Tj ET
+BT /F2 10 Tf 368.00 590.00 Td (50) Tj ET
+BT /F2 10 Tf 436.00 590.00 Td (3.20) Tj ET
+BT /F2 10 Tf 504.00 590.00 Td (160.00) Tj ET
+BT /F1 10 Tf 72.00 560.00 Td (Totals by category are shown below. Freight is billed separately.) Tj ET
+BT /F1 10 Tf 72.00 530.00 Td (Category) Tj ET
+BT /F1 10 Tf 289.00 530.00 Td (Q1) Tj ET
+BT /F1 10 Tf 409.00 530.00 Td (Q2) Tj ET
+0.5 w 72 526 m 424 526 l S
+BT /F1 10 Tf 72.00 514.00 Td (Hardware) Tj ET
+BT /F2 10 Tf 264.00 514.00 Td (660.00) Tj ET
+BT /F2 10 Tf 384.00 514.00 Td (712.40) Tj ET
+BT /F1 10 Tf 72.00 498.00 Td (Electrical) Tj ET
+BT /F2 10 Tf 264.00 498.00 Td (446.25) Tj ET
+BT /F2 10 Tf 384.00 498.00 Td (390.00) Tj ET
+BT /F1 10 Tf 72.00 482.00 Td (Consumables) Tj ET
+BT /F2 10 Tf 264.00 482.00 Td (464.00) Tj ET
+BT /F2 10 Tf 378.00 482.00 Td (\(25.00\)) Tj ET
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 5 0 R /MediaBox [0 0 612 792] /Contents 3 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> >>
+endobj
+5 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+6 0 obj
+<< /Type /Catalog /Pages 5 0 R >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000106 00000 n 
+0000000201 00000 n 
+0000002608 00000 n 
+0000002744 00000 n 
+0000002801 00000 n 
+trailer
+<< /Size 7 /Root 6 0 R >>
+startxref
+2850
+%%EOF
